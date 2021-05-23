@@ -1,0 +1,276 @@
+import java.awt.GridLayout;
+import java.awt.TextArea;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.WindowConstants;
+import javax.swing.border.TitledBorder;
+
+public class TextGenerator
+{
+	private JTextField textField;
+	private TextArea textArea;
+	private JComboBox comboBox;
+	private final String newline = "\n";
+	
+	public TextGenerator()
+	{
+		//*****************************FRAME****************************************
+		JFrame frame = new JFrame("TEXT GENERATOR");
+		frame.setSize(600,300);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		
+		//********************************PANEL*************************************
+		
+		JPanel panel1 = new JPanel();
+		JPanel panel2 = new JPanel();
+		
+		frame.add(panel1);
+		panel1.setBorder(new TitledBorder("FIRST"));
+		frame.add(panel2);
+		panel2.setBorder(new TitledBorder("SECOND"));
+		GridLayout frameLayout = new GridLayout(2,1);
+		frame.setLayout(frameLayout);
+		
+		
+		//*************************PANEL COMPONENT**********************************
+		JLabel label1 = new JLabel("Select Design : ");
+		JLabel label2 = new JLabel("Type Something : ");
+		String[] style = {"1","2","3"};
+		comboBox = new JComboBox(style);
+		textField = new JTextField(10);
+		Action action = new Action();
+		textField.addActionListener(action);
+		
+		GridLayout panel1Layout = new GridLayout(2,2,10,20);
+		panel1.setLayout(panel1Layout);
+		panel1.add(label1);
+		panel1.add(comboBox);
+		panel1.add(label2);
+		panel1.add(textField);
+		
+		textArea = new TextArea(8,50);
+		panel2.add(textArea);
+		GridLayout panel2Layout = new GridLayout(1,1);
+		panel2.setLayout(panel2Layout);
+	
+		frame.setVisible(true);
+	}
+	
+	private class Action implements ActionListener
+	{
+
+		@Override
+		public void actionPerformed(ActionEvent e) 
+		{
+			String text = new String();
+			text = textField.getText();
+			int size = text.length();
+			if(e.getSource() == textField)
+			{
+				for(int i = 0; i <size; i++)
+				{
+					switch(text.charAt(i))
+					{
+					//alphabets
+					case'A':
+						               /*012345678901*/
+						textArea.append("        _/_/" + newline);
+						textArea.append("      _/ _/ " + newline);
+						textArea.append("    _/_/_/  " + newline);
+						textArea.append("  _/   _/   " + newline);
+						textArea.append("_/    _/    " + newline);
+						break;
+					case'B':
+						textArea.append("       _/_/ " + newline);
+						textArea.append("      _/  _/" + newline);
+						textArea.append("     _/_/_/ " + newline);
+						textArea.append("    _/   _/ " + newline);
+						textArea.append("   _/_/_/   " + newline);
+						break;
+					case'C':
+						textArea.append("      _/_/  " + newline);
+						textArea.append("   _/    _/ " + newline);
+						textArea.append("  _/        " + newline);
+						textArea.append("  _/    _/  " + newline);
+						textArea.append("    _/_/    " + newline);
+						break;
+					case'D':
+						textArea.append("      _/_/  " + newline);
+						textArea.append("     _/  _/ " + newline);
+						textArea.append("    _/   _/ " + newline);
+						textArea.append("   _/   _/  " + newline);
+						textArea.append("  _/_/_/    " + newline);
+						break;
+					case'E':
+						textArea.append("      _/_/_/" + newline);
+						textArea.append("    _/      " + newline);
+						textArea.append("   _/_/_/_/ " + newline);
+						textArea.append("  _/        " + newline);
+						textArea.append(" _/_/_/_/   " + newline);
+						break;
+					case'F':
+						textArea.append("      _/_/_/" + newline);
+						textArea.append("    _/      " + newline);
+						textArea.append("   _/_/_/_/ " + newline);
+						textArea.append("  _/        " + newline);
+						textArea.append(" _/         " + newline);
+						break;
+					case'G':
+						textArea.append("      _/_/  " + newline);
+						textArea.append("   _/    _/ " + newline);
+						textArea.append("  _/        " + newline);
+						textArea.append("  _/   _/_/ " + newline);
+						textArea.append("    _/_/    " + newline);
+						break;
+					case'H':
+						textArea.append("    _/    _/" + newline);
+						textArea.append("   _/    _/ " + newline);
+						textArea.append("  _/_/_/_/  " + newline);
+						textArea.append(" _/    _/   " + newline);
+						textArea.append("_/    _/    " + newline);
+						break;
+					case'I':
+						textArea.append("     _/_/_/ " + newline);
+						textArea.append("      _/    " + newline);
+						textArea.append("     _/     " + newline);
+						textArea.append("    _/      " + newline);
+						textArea.append(" _/_/_/     " + newline);
+						break;
+					case'J':
+						textArea.append("     _/_/_/ " + newline);
+						textArea.append("      _/    " + newline);
+						textArea.append("     _/     " + newline);
+						textArea.append("_/  _/      " + newline);
+						textArea.append(" _/_/       " + newline);
+						break;
+					case'K':
+						textArea.append("     _/   _/" + newline);
+						textArea.append("    _/ _/   " + newline);
+						textArea.append("   _/_/     " + newline);
+						textArea.append("  _/  _/    " + newline);
+						textArea.append(" _/    _/   " + newline);
+						break;
+					case'L':
+						textArea.append("    _/      " + newline);
+						textArea.append("   _/       " + newline);
+						textArea.append("  _/        " + newline);
+						textArea.append(" _/         " + newline);
+						textArea.append("_/_/_/_/    " + newline);
+						break;
+					case'M':
+						textArea.append("    _/      _/" + newline);
+						textArea.append("   _/_/  _/_/ " + newline);
+						textArea.append("  _/  _/  _/  " + newline);
+						textArea.append(" _/      _/   " + newline);
+						textArea.append("_/      _/    " + newline);
+						break;
+					case'N':
+						textArea.append("    _/     _/" + newline);
+						textArea.append("   _/_/   _/ " + newline);
+						textArea.append("  _/ _/  _/  " + newline);
+						textArea.append(" _/  _/ _/   " + newline);
+						textArea.append("_/   _/_/    " + newline);
+						break;
+					case'O':
+						textArea.append("    _/_/_/  " + newline);
+						textArea.append("  _/     _/ " + newline);
+						textArea.append(" _/      _/ " + newline);
+						textArea.append(" _/     _/  " + newline);
+						textArea.append("  _/_/_/    " + newline);
+						break;
+					case'P':
+						textArea.append("    _/_/_/  " + newline);
+						textArea.append("   _/     _/" + newline);
+						textArea.append("  _/_/_/_/  " + newline);
+						textArea.append(" _/         " + newline);
+						textArea.append("_/          " + newline);
+						break;
+					case'Q':
+						textArea.append("    _/_/_/  " + newline);
+						textArea.append("  _/     _/ " + newline);
+						textArea.append(" _/      _/ " + newline);
+						textArea.append(" _/     _/  " + newline);
+						textArea.append("  _/_/_/ _/  " + newline);
+						break;
+					case'R':
+						textArea.append("    _/_/_/  " + newline);
+						textArea.append("   _/     _/" + newline);
+						textArea.append("  _/_/_/_/  " + newline);
+						textArea.append(" _/  _/     " + newline);
+						textArea.append("_/     _/   " + newline);
+						break;
+					case'S':
+						textArea.append("    _/_/_/_/ " + newline);
+						textArea.append(" _/          " + newline);
+						textArea.append("   _/_/_/    " + newline);
+						textArea.append("        _/   " + newline);
+						textArea.append("_/_/_/_/     " + newline);
+						break;
+					case'T':
+						textArea.append("    _/_/_/_/" + newline);
+						textArea.append("      _/    " + newline);
+						textArea.append("     _/     " + newline);
+						textArea.append("    _/      " + newline);
+						textArea.append("   _/       " + newline);
+						break;
+					case'U':
+						textArea.append("  _/      _/" + newline);
+						textArea.append(" _/      _/ " + newline);
+						textArea.append("_/      _/  " + newline);
+						textArea.append("_/     _/   " + newline);
+						textArea.append(" _/_/_/     " + newline);
+						break;
+					case'V':
+						textArea.append("   _/     _/" + newline);
+						textArea.append("  _/    _/  " + newline);
+						textArea.append(" _/   _/    " + newline);
+						textArea.append("_/  _/      " + newline);
+						textArea.append("_/_/        " + newline);
+						break;
+					case'W':
+						textArea.append("   _/       _/" + newline);
+						textArea.append("  _/       _/ " + newline);
+						textArea.append(" _/  _/   _/  " + newline);
+						textArea.append("_/  _/   _/   " + newline);
+						textArea.append("_/_/ _/_/     " + newline);
+						break;
+					case'X':
+						textArea.append("     _/     _/" + newline);
+						textArea.append("     _/   _/  " + newline);
+						textArea.append("       _/     " + newline);
+						textArea.append("    _/  _/    " + newline);
+						textArea.append("  _/     _/   " + newline);
+						break;
+						
+					case'Y':
+						textArea.append("     _/     _/" + newline);
+						textArea.append("    _/    _/  " + newline);
+						textArea.append("    _/_/_/    " + newline);
+						textArea.append("     _/       " + newline);
+						textArea.append("   _/         " + newline);
+						break;
+					case'Z':
+						textArea.append("   _/_/_/_/ " + newline);
+						textArea.append("       _/   " + newline);
+						textArea.append("     _/     " + newline);
+						textArea.append("   _/       " + newline);
+						textArea.append(" _/_/_/_/   " + newline);
+						break;
+					default:
+						break;
+					}
+				}
+			}	
+			
+		}
+	}
+	public static void main(String[] args)
+	{
+		new TextGenerator();
+	}
+}
