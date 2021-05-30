@@ -38,7 +38,13 @@ public class TextGenerator
 
     private enum TextStyle { First, Second, Third } // 문자 스타일
     private enum LineStyle { Horizontal, Vertical } // 출력 스타일 ( 가로, 세로 )
-    private enum CapitalStyle { All_Capital, First_Capital, No_Capital }
+    private enum CapitalStyle
+    {
+        Original, // 입력 그대로
+        All_Upper, // 모두 대문자로
+        All_Lower, // 모두 소문자로
+        First_Upper, // 첫 문자만 대문자로
+    }
 
 
     /*---------- 컴포넌트 ----------*/
@@ -115,7 +121,7 @@ public class TextGenerator
         settingPanel.add(btnVertical);
 
         // 입력칸
-        inputPanel.add(new JLabel("Type Something : "));
+        //inputPanel.add(new JLabel("Type Something : "));
         inputField = new JTextField(10);
         inputField.addActionListener(listener);
         inputPanel.add(inputField);
