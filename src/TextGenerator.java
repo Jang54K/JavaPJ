@@ -1,6 +1,7 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Locale;
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
 
@@ -36,15 +37,8 @@ public class TextGenerator
         }
     } // 한 문자의 ASCII Art 정보를 담은 클래스
 
-    private enum TextStyle { First, Second, Third } // 문자 스타일
+    private enum TextStyle { Upper, Lower } // 문자 스타일
     private enum LineStyle { Horizontal, Vertical } // 출력 스타일 ( 가로, 세로 )
-    private enum CapitalStyle
-    {
-        Original, // 입력 그대로
-        All_Upper, // 모두 대문자로
-        All_Lower, // 모두 소문자로
-        First_Upper, // 첫 문자만 대문자로
-    }
 
 
     /*---------- 컴포넌트 ----------*/
@@ -53,7 +47,6 @@ public class TextGenerator
 
 
     private JComboBox styleComboBox;
-    private JComboBox capitalStyleComboBox;
 
     private JButton btnHorizontal, btnVertical;
     private String horizontal = "가로", vertical = "세로";
@@ -70,6 +63,7 @@ public class TextGenerator
     /*---------- 생성자 ----------*/
     public TextGenerator()
     {
+        textStyle = TextStyle.Upper;
         /*---------- Frame ----------*/
         JFrame frame = new JFrame("TEXT GENERATOR");
         frame.setLayout(new GridLayout(3,1));
@@ -101,14 +95,10 @@ public class TextGenerator
         ActionListener listener = new Action();
 
         // 문자 스타일 선택
-        settingPanel.add(new JLabel("문자 스타일 선택 : "));
+        settingPanel.add(new JLabel("대/소문자 선택 : "));
         styleComboBox = new JComboBox(TextStyle.values());
         settingPanel.add(styleComboBox);
 
-        // 대소문자 스타일 선택
-        settingPanel.add(new JLabel("대/소문자 스타일 선택"));
-        capitalStyleComboBox = new JComboBox(CapitalStyle.values());
-        settingPanel.add(capitalStyleComboBox);
 
         // 출력 스타일 선택 : 가로
         btnHorizontal = new JButton(horizontal);
@@ -142,26 +132,37 @@ public class TextGenerator
 
             Object source = e.getSource();
 
-            if(source == btnHorizontal)
+            if(source == btnHorizontal) // "가로" 버튼을 조작했을 경우에,
             {
-                SetLineStyle(LineStyle.Horizontal);
+                SetLineStyle(LineStyle.Horizontal); // "가로" 모드로 변경
             }
-            else if(source == btnVertical)
+            else if(source == btnVertical) // "세로" 버튼을 조작했을 경우에,
             {
-                SetLineStyle(LineStyle.Vertical);
+                SetLineStyle(LineStyle.Vertical); // "세로" 모드로 변경
             }
 
             if(lineStyle != null)
             {
-                outputField.setText(""); // 출력 초기화
+                outputField.setText(""); // 출력칸 초기화
 
-                String text = inputField.getText(); // 텍스트 입력
+                String text = inputField.getText(); // 입력칸의 텍스트를 text 변수에 할당
                 int size = text.length(); // 문자 개수 확인
+
+                switch (textStyle)
+                {
+                    default:
+                    case Upper:
+                        text = text.toUpperCase(Locale.ROOT);
+                        break;
+                    case Lower:
+                        text = text.toLowerCase(Locale.ROOT);
+                        break;
+                }
 
                 ConvertedChar[] input = new ConvertedChar[size]; // 출력할 문자열을 담은 변수 생성, 메모리 할당
                 for(int i = 0; i < size; i++) // 입력된 각 문자를 변환하여 input에 대입
                 {
-                    input[i] = ConvertChar(text.charAt(i),TextStyle.First);
+                    input[i] = ConvertChar(text.charAt(i),TextStyle.Upper);
                 }
                 Write(input, lineStyle); // 완성된 출력 문자열을 textArea에 출력
             }
@@ -174,7 +175,7 @@ public class TextGenerator
             String[] lines;
             switch(style)
             {
-                case First:
+                case Upper:
                 default:
                     switch(character){
                         case 'A': 
