@@ -38,7 +38,7 @@ import javax.swing.border.TitledBorder;
 
 public class TextGenerator
 {
-    /*---------- 문자 클래스, 스타일 enum 선언 ----------*/
+    //*---------- 문자 클래스, 스타일 enum 선언 ----------*/
 
     // 변환된 단일 문자의 정보를 담은 클래스
     private class ConvertedChar {
@@ -90,7 +90,7 @@ public class TextGenerator
     private enum LineStyle { Horizontal, Vertical } // 출력 스타일 ( 가로, 세로 )
 
 
-    /*---------- 컴포넌트 ----------*/
+    //*---------- 컴포넌트 ----------*/
 
     private JComboBox styleComboBox; // 스타일 선택 칸 ( 대/소문자 )
     private JButton btnHorizontal, btnVertical; // 가로, 세로 선택 버튼
@@ -98,17 +98,17 @@ public class TextGenerator
     private JTextPane outputField; // 텍스트 출력칸
     private JButton copy; //복사
 
-    /*---------- 상수 ----------*/
+    //*---------- 상수 ----------*/
 
     private final int height = 5; // 변환된 문자 하나의 줄 개수 ( for 문에 사용됨 )
     private String horizontal = "가로", vertical = "세로"; // "가로", "세로" 텍스트 ( final 상수는 아니지만 비슷한 역할 )
 
-    /*---------- 스타일 변수 ----------*/
+    //*---------- 스타일 변수 ----------*/
 
     private TextStyle textStyle; // 대문자, 소문자 사용자 선택을 담은 변수. styleComboBox에 의해 변경.
     private LineStyle lineStyle; // 가로, 세로 사용자 선택을 담은 변수, btnHorizontal, btnVertical에 의해 변경.
 
-    /*---------- 생성자 ----------*/
+    //*---------- 생성자 ----------*/
     public TextGenerator() {
         textStyle = TextStyle.Upper; // 기본값 대문자, styleComboBox에 Listener 추가 후 없애도 됨.
 
@@ -120,7 +120,7 @@ public class TextGenerator
         frame.setSize(600,600);                             // 창의 크기
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);  // 창이 닫힐 시, 프로그램 종료
 
-        /*---------- Panels ----------*/
+        //*---------- Panels ----------*/
 
         // 패널
         JPanel  settingPanel = new JPanel(), // 제 1행, 설정 패널
