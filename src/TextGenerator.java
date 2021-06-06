@@ -33,6 +33,8 @@ import javax.swing.border.TitledBorder;
      <To Do>
         1. GUI 디자인 향상
         2. GUI 레이아웃 향상
+
+        3. 디자인 추가
 */
 
 
