@@ -60,6 +60,7 @@ public class TextGenerator
         }
 
         // 클래스를 문자열로 변환 시, 줄 순서대로 변환된 문자열 반환
+        @Override
         public String toString() {
 
             return
@@ -789,6 +790,16 @@ public class TextGenerator
                                     "□■□■□",
                                     "□■□■□",
                                     "□■■■□"
+                            });
+                case 'v':
+                    Log("[변환] 문자 " + character + " 변환 성공 :)");
+                    return new ConvertedChar( new String[]
+                            {
+                                    "□□□□□",
+                                    "□□□□□",
+                                    "□■□■□",
+                                    "□■□■□",
+                                    "□□■□□"
                             });
 
                 case 'w':
